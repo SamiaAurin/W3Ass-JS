@@ -1,0 +1,1658 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.gallery-section,
+.property-section,
+.middle-section,
+.question-box,
+.rule-info,
+.review-section,
+.last-container{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+/* Navbar CSS*/
+.navbar {
+    display: flex;
+    width: 100%;
+    height: 75px;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.15);
+}
+.navbar .phone-icon{
+    display: none;
+}
+.nav-items {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-item {
+    
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/*Country Modal*/
+/* CSS for the modal window */
+.country-modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stays in place */
+    z-index: 1000; /* Ensures it's above other elements */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 5px;
+}
+.country-modal-title{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+
+    span{
+        color: #005fa3;
+        font-size: 30px;
+    }
+
+    h3{
+        font-weight: 400;
+        font-size: 15px;
+        margin-left: 20px;
+    }
+}
+.modal-content {
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+}
+.countrymodal-text{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    text-align: justify;
+
+    h3{
+        font-weight: 500;
+    }
+    h5{
+        font-weight: 300;
+    }
+}
+#countryModal {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+#countrySelect {
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+}
+.currency-display {
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 50px;
+    border-radius: 15px;
+    text-align: left;
+    padding-left: 5px; /* Adds space to the left of the text */
+    display: flex; /* Aligns content properly within the box */
+    align-items: center; /* Vertically centers content */
+  }
+  
+#currencyDisplay {
+    
+    padding: 5px;
+    margin-top: 1px;
+}
+
+#submitCountry {
+    margin-top: 30px;
+    padding: 5px;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 20px;
+}
+/* Navbar CSS end*/
+/* Gallery CSS start */
+
+.gallery-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.back-link {
+    color: #0066FF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.back-link i {
+    font-size: 14px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-save {
+    color: #FF385C;
+}
+.btn-save i{
+    /*For Interactive with JS */
+}
+/* CSS for the share modal starts */
+.share-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.share-modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.sharemodal-title-img {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.sharemodal-img{
+    margin-right: 20px;
+
+
+}
+.sharemodal-img img {
+    width: 100%; 
+    padding: 5px; 
+    border-radius: 10px;
+}
+.sharemodal-title{
+    h6{
+        font-weight: 300;
+        color: #333;
+    }
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.share-icon {
+    margin: 0 10px; 
+}
+
+.share-icon img {
+    width: 30px; 
+    height: 30px; 
+}
+
+/* CSS for the share modal ends*/
+/*Gallery Pics CSS*/
+.gallery-grid {
+    display: flex;
+    gap: 8px;
+    height: 450px;
+}
+
+.main-photo {
+    flex: 1;
+    overflow: hidden;
+}
+
+.gallery-grid-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    flex: 1;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-count {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+}
+.photo-count i {
+    font-size: 14px;
+}
+.gallery-item img {
+    border-radius: 8px;
+}
+/*Gallery Modal CSS*/
+
+.gallery-img-modal {
+    display: none;  
+    z-index: 1001; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 100%; 
+    background-color: transparent; 
+}
+
+/* Close button */
+.gallery-close {
+    color: #a00505;
+    margin-left: auto;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Modal content */
+.gallery-modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10% auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+/* Image */
+.slider-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Slider buttons */
+.slider-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Previous and Next buttons */
+.slider-buttons button {
+   
+    color: #fff;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
+
+/* Photo count */
+.modal-photo-count {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(238, 237, 236);
+    
+}
+
+.modal-photo-count h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.modal-photo-count strong {
+    font-size: 1.2em;
+}
+
+.modal-photo-count span {
+    font-size: 1em;
+    color: #888;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .gallery-modal-content {
+        max-width: 90%;
+    }
+}
+/*Gallery pics CSS Ends*/
+
+/* property css*/
+
+.property-section {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.tab.active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Left Column */
+.left-column {
+    flex: 3;
+}
+
+.title-section h6 {
+    font-size: 16px;
+    font-weight: 300;
+    color: #020202;
+    margin: 0;
+}
+
+.title-section h1 {
+    font-size: 60px;
+    font-weight: 600;
+    color: black;
+    margin: 5px 0;
+}
+
+.rating {
+    display: flex;
+    margin-top: 10px;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.rating-score {
+    background-color: #1b4b27;
+    color: #fff;
+    padding: 5px ;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-right: 10px;
+}
+.see-review a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    margin-top: 5px;
+}
+.property-details {
+    margin-top: 20px;
+}
+
+.property-info,
+.amenities-grid  {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+    
+}
+.property-info .icon-text {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.property-info .icon-text i {
+    color: #555;
+    margin-right: 8px;
+}
+
+.amenities {
+    margin-top: 20px;
+}
+
+.amenities h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.amenities-grid div {
+    display: flex;
+    align-items: center;
+}
+
+.amenities a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+/*Explore Area*/
+.explore
+{
+    margin-top: 20px;
+}
+.explore-container {
+    border-radius: 14px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.map {
+    border: 1px solid rgb(224, 217, 217);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 250px;
+}
+.map img {
+    width: 100%;
+    height: auto;
+}
+.map-text{
+    padding-left: 10px;
+}
+.explore-info {
+    margin-left: 20px;
+    flex-grow: 1;
+}
+.info-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.location-list {
+    list-style: none;
+    padding: 0;
+}
+.location-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.location-item i {
+    margin-right: 10px;
+    color: #555;
+}
+.see-more {
+    color: #0077cc;
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Right Column */
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/*Membership*/
+.membership{
+    display: flex;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: #080330;
+    color: white;
+}
+.membership-logo,
+.membership-text{
+    padding: 10px;
+    margin: 20px;
+}
+
+.membership-logo i{
+    font-size:24px;
+    margin-top: 20px;
+}
+.button-signin-sec{
+    margin-top: 20px;
+}
+.signin-btn{
+    color: white;
+    background-color: #0066c0;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+}
+/* Price Card*/
+.booking-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    border: 1px solid #e0e0e0;
+}
+.price {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.per-night {
+    color: black;
+    font-size: small;
+    font-weight: 300;
+}
+.free-cancellation {
+    color: #4caf50;
+    margin-top: 10px;
+}
+.info {
+    color: #555;
+    font-size: 0.9em;
+}
+.available {
+    color: black;
+    margin-top: 10px;
+    i{
+        color: #4caf50;
+    }
+}
+.date-select {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+.date-box {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1;
+    margin-right: 10px;
+    text-align: center;
+}
+.date-box:last-child {
+    margin-right: 0;
+}
+.travelers {
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* CSS for the traveller modal */
+.travel-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+    .modal-content {
+        text-align: center;
+    }
+
+}
+
+.counter {
+    margin-bottom: 15px;
+}
+
+.counter-section {
+    margin-bottom: 10px;
+}
+
+.counter-controls {
+    display: flex;
+    align-items: center;
+}
+
+.counter-controls i {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+input[type="number"] {
+    width: 40px;
+    text-align: center;
+    padding: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+/*Traveller Modal CSS Ends*/
+.total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-weight: bold;
+
+    .small-text {
+        font-weight: 300;
+        font-size: 14px;
+    }
+}
+.price-details {
+    color: #0077cc;
+    font-weight: 300;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 5px;
+    display: inline-block;
+}
+.book-now {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: #0077cc;
+    color: white;
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+.book-now:hover {
+    background-color: #005fa3;
+}
+.note {
+    color: #555;
+    font-size: 0.9em;
+    margin-top: 10px;
+    text-align: center;
+}
+.contact-host {
+    text-align: center;
+    margin-top: 20px;
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: none;
+}
+.property-number {
+    text-align: center;
+    margin-top: 10px;
+    color: black;
+    font-size: 0.9em;
+}
+
+/* */
+
+.rooms-beds {
+    margin-top: 60px;
+    color: black;
+}
+
+.rooms-beds h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.bedrooms h4{
+    display: flex;
+    align-items: center;
+}
+.bedrooms h4, .bathroom h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.bedrooms span {
+    font-size: 14px;
+    color: #666;
+    display: block;
+}
+
+.bedroom-details {
+    display: flex;
+    gap: 200px;
+    margin-top: 10px;
+}
+
+.room h5 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.room i {
+    color: #555;
+    margin-right: 8px;
+}
+
+.bathroom span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+.spaces h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+.spaces-list div {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.spaces a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* About */
+.about-section {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    color: #030303;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+.about-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-section h4 {
+    font-size: 18px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.policies-list {
+    list-style: none;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+.property-img img{
+    width: 80px;
+}
+.property-img h6{
+    font-weight: 300;
+}
+.amenities-section {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+
+}
+
+.amenities-section h2 {
+    font-size: 24px;
+    color: #030303;
+    margin-right: 60px;
+}
+
+.amenity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9em;
+    color: #555;
+    width: 100px;
+}
+
+.amenity i {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #0071c2;
+}
+
+.view-all {
+    display: inline-block;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #0071c2;
+    text-decoration: none;
+}
+
+.view-all:hover {
+    text-decoration: underline;
+}
+
+/* Have a Que */
+
+.question-box {
+    max-width: 90%;
+    background-color: #e6f1ff;
+    border-radius: 8px;
+    margin-top: 30px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: left;
+}
+
+.question-box h3 {
+    font-size: 1.2em;
+    color: #333;
+    margin: 0;
+}
+
+.question-box p {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+    position: relative;
+    flex: 1;
+}
+
+.search-bar i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #0077cc;
+    font-size: 1.2em;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px 15px 10px 40px; /* padding-left for icon space */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+}
+
+.search-button {
+    background-color: #8eb4fa;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button i {
+    color: #557e9b;
+    font-size: 1em;
+}
+
+.beta-label {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+/* Rules and Info */
+.rule-info{
+    margin-top: 60px;
+}
+.rule-info h3 {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.2em;
+   
+}
+.house-section {
+    display: flex;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.left-col {
+    width: 25%; /* Adjust the width as needed */
+    padding-right: 20px; /* Adds space between columns */
+}
+
+.right-col {
+    width: 70%; /* Adjust the width as needed */
+    padding-left: 20px; /* Adds padding to align the text */
+}
+.left-col,
+.right-col{
+    margin-bottom: 50px;
+}
+.house-rules, .damage , .cancellation, .important-info, .faq {
+    display: flex;
+    justify-content: space-between;
+    row-gap: 20px;
+
+}
+.important-info p{
+    margin-bottom: 30px;
+}
+.checkin-checkout-info1 .see-more ,
+.right-col .see-more{
+    display: none;
+}
+.checkin-checkout-info1, 
+.checkin-checkout-info2{
+  display: flex;
+  flex-wrap: wrap;
+}
+.checkin-checkout-info1 p,
+.checkin-checkout-info2 div{
+    flex: 1 1 50%;
+    margin-bottom: 30px;
+}
+.icons {
+    display: block;
+    align-items: center;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #0a0a0a;
+}
+.icons i {
+    margin-right: 10px;
+    color: #050505;
+}
+.important-info p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+.faq-item {
+    font-size: 0.9em;
+    margin-bottom: 8px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    
+}
+
+.faq-item i {
+    color: #030303;
+    margin-right: 5px;
+}
+/* Cancalletion */
+
+ .refund-policy {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Timeline section */
+.timeline-container {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* Timeline line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: black;
+    z-index: 1;
+}
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: calc(50%); /* Starts from the middle */
+    right: 20px; /* Ends at the right edge */
+    height: 2px;
+    background-color: #9e9a9a; /* Lighter ash color */
+    z-index: 1;
+}
+/* Timeline items */
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    color: #333;
+    position: relative;
+}
+
+/* Circles styling */
+.timeline-item .circle {
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border-radius: 50%;
+    margin-bottom: 8px;
+}
+
+/* Open circle for "No refund" */
+.timeline-item .circle.open {
+    background-color: #f7f7f7;
+    border: 2px solid #333;
+}
+.timeline-item .circle.halfopen{
+    background-color: #f7f7f7;
+    border: 1px solid #a5a3a3;
+}
+
+/* Positioning "Full refund" and "No refund" above the line */
+.timeline-item.above {
+    position: relative;
+    top: -20px; /* Move this item up */
+}
+
+.timeline-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Refund details section */
+.refund-details {
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+
+.refund-details .refund-item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+/* Date styling */
+.refund-details .refund-item .date {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    margin-right: 20px;
+    white-space: nowrap;
+}
+
+/* Description styling */
+.refund-details .refund-item .description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Bold text within description */
+.refund-details .refund-item .description b {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Reviews in Cards */
+.review-section{
+    display: flex;
+    margin-top: 20px;
+}
+
+.review-rating{
+
+    span{
+        color: #28a745;
+        font-weight: 400;
+    }
+
+    h2{
+        font-weight: 500;
+    }
+
+    h5, h6{
+        font-weight: 300;
+    }
+}
+
+.review-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.reviews-header {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.reviews {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.review-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 300px;
+    border: 1px solid #e0e0e0;
+    flex: 1;
+}
+.rating {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.review-text {
+    color: #555;
+    margin-bottom: 15px;
+}
+.read-more {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+.author {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.date {
+    color: #888;
+    font-size: 0.9em;
+}
+.see-all {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid #9b9d9e;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+.see-all:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+/* Last two rows */
+.last-container {
+    margin-top: 60px;
+    
+}
+.last-section {
+    display: flex;
+}
+.section-title {
+    font-weight: bold;
+    margin-right: 550px;
+}
+.host-info ,
+.contact{
+    display: flex;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.languages {
+    margin-top: 50px;
+}
+.contact-button {
+    color: #0077cc;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #9b9d9e;
+    padding: 10px 15px;
+    border-radius: 25px;
+}
+/*Responsive Design*/
+@media (max-width:768px){
+   /*Navbar CSS*/
+   .navbar{
+        width: 100%;
+        padding: 1rem 1rem;
+    }
+    .navbar .phone-icon{
+        display: inline;
+    }
+    .nav-items{
+        display: none;
+    }
+     
+    /*Margin of Sections*/
+    .gallery-section,
+    .property-section,
+    .middle-section,
+    .question-box,
+    .rule-info,
+    .review-section,
+    .last-container{
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .content{
+        display: block;
+        gap: 30px;
+    } 
+    .location-list{
+        font-size: 10px;
+    }
+    .right-column{
+        margin-top: 30px;
+    }
+    .membership,
+    .booking-card{
+        width: 100%;
+    }
+    .middle-section{
+        padding: 10px;
+    } 
+    .question-box {
+        max-width: 100%;
+        padding: 5px;
+    }
+    .beta-label{
+        top: 12px;
+    }
+    /*Rules about House Damage Cancellation FAQ*/
+    .rule-info {
+       padding: 5px;
+    }
+    /*Review*/
+    .review-section ,
+    .last-container{
+        display: block;
+        padding: 10px;
+    }
+    
+    .last-section{
+        display: block;
+    }
+    .section-title {
+        margin-right: 0px;
+    }
+}
+@media (max-width: 625px) {
+    /* Timeline line */
+    .timeline-container::before, .timeline-container::after {
+        top: 64%; 
+    }
+
+    /* Timeline items */
+    .timeline-item {
+        margin: 10px 0; /* Adjust vertical spacing between timeline items */
+    }
+    .timeline-item p {
+       
+        font-size: 12px;
+    }
+    .timeline-item.below {
+        top: 25px; /* Adjust the upward position for above items */
+    }
+    /* Positioning "Full refund" and "No refund" above the line */
+    .timeline-item.above {
+        top: -15px; /* Adjust the upward position for above items */
+    }
+}
+
+/*For Second Review Card*/
+@media (max-width: 539px) {
+    .review-section .second-review-card {
+        display: none; 
+    }
+}
+/*For Second Review Card ends*/
+
+/*Responsive For Mobile Devices*/
+@media (max-width:480px) {
+
+    .share-text{
+        display: none; 
+    }
+    
+    .gallery-nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 7px;
+        position: absolute;
+        z-index: 1;
+    }
+    .back-link {
+        color: #180808;
+        font-weight: 400;
+        border: 1px solid #ddd;
+        background: white;
+        border-radius: 50px;
+        font-size: 12px;
+        padding: 3px;
+    }
+    
+    .btn{
+        padding: 7px 14px;
+    }
+
+    .gallery-grid {
+        display: flex;
+        gap: 8px;
+        height: 450px;
+        position: relative;
+        margin-top: 15px;
+    }
+    /*Juneau Vacation Home: Stunning View + Beach Access*/
+    .title-section h1 {
+        font-size: 30px;  
+    }
+
+    .explore-container {
+        border-radius: 14px;
+        display: block;
+    }
+    .explore-info {
+        margin-left: 0px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+    .map{
+        max-width: 100% 
+    }
+    .location-list{
+        font-size: 10px;
+    }
+    .booking-card {
+       width: 100%;
+    }
+    .amenities-section ,
+    .amenities-grid{
+        display: block;
+        i{
+            width: 20px;
+            margin-right: 5px;
+        }
+        span{
+            font-size: 12px;
+        }
+    }
+    .amenities-section h2 {
+        text-align: left;
+    }
+    .middle-section{
+        padding: 10px;
+    }
+    .house-rules, .damage , .cancellation, .important-info, .faq {
+        display: block;
+        row-gap: 2px;
+    }
+    .left-col {
+        width: 0%;
+        margin-left: 18px;
+        margin-bottom: 20px;
+        padding-right: 20px;
+    }
+    .checkin-checkout-info1, 
+    .checkin-checkout-info2
+    {
+      display: block;
+    }
+    
+    /*Right Section/Card for Cancellation Rules */
+    .timeline-container {
+        flex-direction: column; /* Stack items vertically */
+        margin-bottom: 0px;
+
+        p{
+                transform: rotate(270deg);
+                position: relative;        
+        }
+        
+    }
+    .timeline-container::before {
+        top: 30%;
+        left: 25%;
+        width: calc(50%); 
+        transform: rotate(90deg);
+        transform-origin:  center; /* Change rotation origin */
+    }
+
+    .timeline-container::after {
+        left: 15px;
+        top: 55%;
+        width: calc(88%);
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+
+    .timeline-item {
+        transform: rotate(90deg); 
+        margin-bottom: 20px; 
+        
+    }
+    /* Positioning "Today" and "Nov 4" and "Check in" */
+    .timeline-item.below{
+        top: 8px; /* Move this item up */
+        right: -41px;
+    } 
+    /* Positioning "Full refund" and "No refund" above the line */
+    .timeline-item.above {
+        top: 8px; 
+        left: -35px;
+    } 
+    /* position of the circles */
+    .timeline-item .circle {
+        margin-bottom: 0px; 
+        position: relative;
+        top: 48px;
+    }
+
+    /*Review And LastSection*/
+    .review-section{   
+        display: block;  
+    }
+    .last-section {
+        display: block;
+    }
+    .contact-button {
+        margin-top: 20px;
+    }
+    .checkin-checkout-info2{
+        display: none;
+    }
+    .checkin-checkout-info1 .see-more ,
+    .right-col  .see-more{
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 1em;
+        color: #0077cc; /* Blue color for link */
+        text-decoration: none;
+    }
+
+    .right-col .faq-item:nth-child(2),
+    .right-col .faq-item:nth-child(3),
+    .right-col .faq-item:nth-child(4) {
+        display: none;
+    }
+
+}
+
+/*Media Query for 375px*/
+/*Right Section/Card for Cancellation Rules */
+@media (max-width: 375px) {
+
+    .btn{
+        padding: 4px 8px;
+    }
+    .photo-count{
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+    .timeline-container {
+        flex-direction: column;
+        margin-bottom: 0px;
+
+        p{
+                transform: rotate(270deg);
+                position: relative;        
+        }
+        
+    }
+    .timeline-container::before {
+        top: 33%;
+        left: 27%;
+        
+    }
+
+    .timeline-container::after {
+        left: 15px;
+        top: 55%;
+        width: calc(88%);
+        transform: rotate(90deg);
+        transform-origin: center;
+    }
+
+    /* Positioning "Today" and "Nov 4" and "Check in" */
+    .timeline-item.below{
+        right: -45px;
+    } 
+    /* Positioning "Full refund" and "No refund" above the line */
+    .timeline-item.above {
+        top: 8px; 
+        left: -35px;
+    } 
+    /* position of the circles */
+    .timeline-item .circle {
+        margin-bottom: 0px; 
+        position: relative;
+        top: 48px;
+    }
+
+} 
