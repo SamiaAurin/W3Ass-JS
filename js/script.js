@@ -152,35 +152,43 @@ document.getElementById('copyLink').addEventListener('click', function() {
 
 
 /*Save Button JS*/
-const btn = document.querySelector('.btn-save');
-const heartIcon = document.querySelector('.btn-save i');
+let heartState = localStorage.getItem('heartState') || 'inactive';
+
+const heartIcon = document.querySelector('.btn-save i'); // Select the heart icon
+const shareText = document.querySelector('.btn-save .share-text'); // Select the share-text span
 
 // Check if a 'heartState' value is stored in local storage
 // If not, set it to 'inactive' by default
-let heartState = localStorage.getItem('heartState') || 'inactive';
-
 function toggleHeartState() {
     if (heartState === 'active') {
         heartIcon.classList.remove('fa-heart');
         heartIcon.classList.add('fa-heart-o');
+        shareText.textContent = 'Save'; // Change text to "Save"
         heartState = 'inactive';
     } else {
         heartIcon.classList.remove('fa-heart-o');
         heartIcon.classList.add('fa-heart');
+        shareText.textContent = 'Saved'; // Change text to "Saved"
         heartState = 'active';
     }
     
     // Store the updated heart state in local storage
     localStorage.setItem('heartState', heartState);
 }
-// Set the initial state of the heart icon based on the stored value
+
+// Set the initial state of the heart icon and text based on the stored value
 if (heartState === 'active') {
     heartIcon.classList.remove('fa-heart-o');
     heartIcon.classList.add('fa-heart');
+    shareText.textContent = 'Saved';
 } else {
     heartIcon.classList.remove('fa-heart');
     heartIcon.classList.add('fa-heart-o');
+    shareText.textContent = 'Save';
 }
+
+// Event listener to toggle the heart state when the button is clicked
+document.querySelector('.btn-save').addEventListener('click', toggleHeartState);
 
 // Event listener to toggle the heart icon state on button click
 btn.addEventListener('click', toggleHeartState);
