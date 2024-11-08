@@ -34,6 +34,7 @@ body {
 }
 .navbar .phone-icon{
     display: none;
+    cursor: pointer;
 }
 .nav-items {
     display: flex;
@@ -41,7 +42,17 @@ body {
     gap: 2rem;
     list-style: none;
 }
-
+.nav-items.toggle {
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    right: 2rem;
+    top: 75px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    padding: 1rem;
+    width: auto;
+}
 .nav-item {
     
     font-size: 1.2rem;
@@ -56,13 +67,13 @@ body {
 /*Country Modal*/
 /* CSS for the modal window */
 .country-modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stays in place */
-    z-index: 1000; /* Ensures it's above other elements */
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.5); 
     padding: 20px;
     border-radius: 5px;
 }
@@ -74,6 +85,7 @@ body {
     span{
         color: #005fa3;
         font-size: 30px;
+        cursor: pointer;
     }
 
     h3{
@@ -207,6 +219,7 @@ body {
 
 .share-modal-content {
     background-color: #fefefe;
+    border-radius: 20px;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -327,17 +340,21 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100%; 
+    max-width: 100%; 
     height: 100%; 
     background-color: transparent; 
 }
 
 /* Close button */
 .gallery-close {
+    background: white;
     color: #a00505;
     margin-left: auto;
+    margin-bottom: 10px;
     font-size: 28px;
     font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
 }
 
 /* Modal content */
@@ -349,7 +366,7 @@ body {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */;
     padding: 20px;
     border-radius: 5px;
-    max-width: 80%;
+    max-width: 100%;
 }
 
 /* Image */
@@ -386,6 +403,7 @@ body {
     align-items: center;
     text-align: center;
     background-color: rgb(238, 237, 236);
+    border-radius: 10px;
     
 }
 
@@ -404,12 +422,7 @@ body {
     color: #888;
 }
 
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    .gallery-modal-content {
-        max-width: 90%;
-    }
-}
+
 /*Gallery pics CSS Ends*/
 
 /* property css*/
@@ -463,7 +476,12 @@ body {
     color: black;
     margin: 5px 0;
 }
-
+@media (max-width: 1280px) {
+    .title-section h1{
+        font-size: 30px;
+    }
+    
+}
 .rating {
     display: flex;
     margin-top: 10px;
@@ -682,7 +700,7 @@ body {
     display: none;
     position: fixed;
     top: 50%;
-    left: 50%;
+    left: 85%;
     transform: translate(-50%, -50%);
     background: #fff;
     padding: 20px;
@@ -702,7 +720,18 @@ body {
 }
 
 .counter-section {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.counter-section label {
+    font-weight: 300;
+    font-size: 10px;
 }
 
 .counter-controls {
@@ -718,6 +747,14 @@ body {
     margin: 0 10px;
 }
 
+.counter-controls input {
+    width: 50px;
+    text-align: center;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin: 0 10px;
+}
+
 input[type="number"] {
     width: 40px;
     text-align: center;
@@ -726,6 +763,21 @@ input[type="number"] {
 
 input[type="checkbox"] {
     margin-right: 5px;
+}
+
+#submitDoneTraveller{
+    border: none;
+    width: 100%;
+    text-align: center;
+    background-color: #0077cc;
+    color: white;
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+
 }
 /*Traveller Modal CSS Ends*/
 .total {
@@ -1043,13 +1095,13 @@ input[type="checkbox"] {
     padding-bottom: 20px;
 }
 .left-col {
-    width: 25%; /* Adjust the width as needed */
-    padding-right: 20px; /* Adds space between columns */
+    width: 25%; 
+    padding-right: 20px; 
 }
 
 .right-col {
-    width: 70%; /* Adjust the width as needed */
-    padding-left: 20px; /* Adds padding to align the text */
+    width: 70%; 
+    padding-left: 20px; 
 }
 .left-col,
 .right-col{
@@ -1333,7 +1385,32 @@ input[type="checkbox"] {
     padding: 10px 15px;
     border-radius: 25px;
 }
+
 /*Responsive Design*/
+@media (max-width: 995px) {
+    .content{
+        display: block;
+        gap: 30px;
+    } 
+    .right-column{
+        margin-top: 30px;
+    }
+    .membership,
+    .booking-card{
+        width: 100%;
+    }
+    .last-container{
+        display: block;
+        padding: 10px;
+    }
+    
+    .last-section{
+        display: block;
+    }
+    .section-title {
+        margin-right: 0px;
+    }
+}
 @media (max-width:768px){
    /*Navbar CSS*/
    .navbar{
@@ -1341,10 +1418,21 @@ input[type="checkbox"] {
         padding: 1rem 1rem;
     }
     .navbar .phone-icon{
-        display: inline;
+        display: block;
+        cursor: pointer;
     }
-    .nav-items{
-        display: none;
+    .nav-items {
+        display: none; 
+        position: absolute;
+        z-index: 1000;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        line-height: 50px;
+        background-color: white;
+        flex-direction: column;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 0 rgba(0,0,0,0.15);
     }
      
     /*Margin of Sections*/
@@ -1359,20 +1447,23 @@ input[type="checkbox"] {
         margin-right: 2px;
     }
 
-    .content{
-        display: block;
-        gap: 30px;
-    } 
+    /*Gallery Modal CSS*/
+    .gallery-modal-content {
+        max-width: 90%;
+    }
+
     .location-list{
         font-size: 10px;
     }
-    .right-column{
-        margin-top: 30px;
+    
+    /*Travel Modal CSS Starts*/
+    .sharemodal-title {
+        font-size: 12px;
     }
-    .membership,
-    .booking-card{
-        width: 100%;
+    .travel-modal{
+        left: 50%;
     }
+    /*Travel modal ends*/
     .middle-section{
         padding: 10px;
     } 
@@ -1388,18 +1479,11 @@ input[type="checkbox"] {
        padding: 5px;
     }
     /*Review*/
-    .review-section ,
-    .last-container{
+    .review-section {
         display: block;
         padding: 10px;
     }
     
-    .last-section{
-        display: block;
-    }
-    .section-title {
-        margin-right: 0px;
-    }
 }
 @media (max-width: 625px) {
     /* Timeline line */
@@ -1492,6 +1576,46 @@ input[type="checkbox"] {
     .booking-card {
        width: 100%;
     }
+    /*Taveller Modal CSS*/
+    .gallery-img-modal{
+        top: 55%;
+     }
+     .modal-photo-count h1,
+     .modal-photo-count strong{
+         font-size: 1em;
+         margin-bottom: 10px;
+         
+     }
+    .sharemodal-title {
+        font-size: 8px;
+        h6{
+           
+            font-size: 7px;
+            
+        }
+    }
+    .sharemodal-img {
+        margin-right: 0px; 
+    }
+    
+    .gallery-modal-content {
+        max-width: 90%;
+        height: 50%;
+    }
+
+    .sharemodal-title-img {
+        display: block; 
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+    .sharemodal-title {
+        font-size: 6px;
+        padding: 5px;
+    }
+
+    /*Amenities Section*/
     .amenities-section ,
     .amenities-grid{
         display: block;
@@ -1615,6 +1739,7 @@ input[type="checkbox"] {
         padding: 4px 6px;
         font-size: 10px;
     }
+
     .timeline-container {
         flex-direction: column;
         margin-bottom: 0px;
@@ -1656,3 +1781,4 @@ input[type="checkbox"] {
     }
 
 } 
+

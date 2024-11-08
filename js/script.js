@@ -1,73 +1,100 @@
+// Navbar toggle in Responsive Design
+document.getElementById("toggleIcon").addEventListener("click", function () {
+    // Check if the screen width is 768px or less
+    if (window.innerWidth <= 768) {
+        const navbarItems = document.getElementById("navbarItems");
+        navbarItems.classList.toggle("toggle"); // Toggle the column display
+        navbarItems.style.display = navbarItems.style.display === "flex" ? "none" : "flex";
+    }
+});
+
+window.addEventListener("resize", function () {
+    const navbarItems = document.getElementById("navbarItems");
+    if (window.innerWidth > 768) {
+        navbarItems.classList.remove("toggle");
+        navbarItems.style.display = "flex"; 
+        
+    } else if (!navbarItems.classList.contains("toggle")) {
+        navbarItems.style.display = "none"; 
+        
+    }
+});
+
+
 // JavaScript for the country and currency selection modal
 const countryModal = document.getElementById('countryModal');
 const countrySelect = document.getElementById('countrySelect');
 const currencyDisplay = document.getElementById('currencyDisplay');
 const countryname = document.querySelector('.nav-item:first-child');
+const countryCloseBtn = document.querySelector('.country-close');
+
 // Function to update currency based on selected country
 function updateCurrency(country) {
+    let currency = 'Currency not available'; // Default message
     switch (country) {
-            case 'usa':
-                currencyDisplay.textContent = '$ USD';
-                break;
-            case 'uk':
-                currencyDisplay.textContent = '£ GBP';
-                break;
-            case 'canada':
-                currencyDisplay.textContent = '$ CAD';
-                break;
-            case 'eurozone':
-                currencyDisplay.textContent = '€ EUR';
-                break;
-            case 'japan':
-                currencyDisplay.textContent = '¥ JPY';
-                break;
-            case 'australia':
-                currencyDisplay.textContent = '$ AUD';
-                break;
-            case 'switzerland':
-                currencyDisplay.textContent = 'CHF';
-                break;
-            case 'sweden':
-                currencyDisplay.textContent = 'SEK';
-                break;
-            case 'afghanistan':
-                currencyDisplay.textContent = 'Afghani (AFN)';
-                break;
-            case 'armenia':
-                currencyDisplay.textContent = 'Dram (AMD)';
-                break;
-            case 'azerbaijan':
-                currencyDisplay.textContent = 'Manat (AZN)';
-                break;
-            case 'bahrain':
-                currencyDisplay.textContent = 'Bahraini Dinar (BHD)';
-                break;
-            case 'bangladesh':
-                currencyDisplay.textContent = 'Taka (BDT)';
-                break;
-            case 'bhutan':
-                currencyDisplay.textContent = 'Ngultrum (BTN)';
-                break;
-            case 'brunei':
-                currencyDisplay.textContent = 'Brunei Dollar (BND)';
-                break;
-            case 'cambodia':
-                currencyDisplay.textContent = 'Riel (KHR)';
-                break;
-            case 'china':
-                currencyDisplay.textContent = 'Yuan Renminbi (CNY)';
-                break;
-            case 'georgia':
-                currencyDisplay.textContent = 'Lari (GEL)';
-                break;
-            case 'india':
-                currencyDisplay.textContent = 'Indian Rupee (INR)';
-                break;    
-            // Add more cases for other countries and currencies
-            default:
-                currencyDisplay.textContent = 'Currency not available';
+        case 'usa':
+            currency = '$ USD';
+            break;
+        case 'uk':
+            currency = '£ GBP';
+            break;
+        case 'canada':
+            currency = '$ CAD';
+            break;
+        case 'eurozone':
+            currency = '€ EUR';
+            break;
+        case 'japan':
+            currency = '¥ JPY';
+            break;
+        case 'australia':
+            currency = '$ AUD';
+            break;
+        case 'switzerland':
+            currency = 'CHF';
+            break;
+        case 'sweden':
+            currency = 'SEK';
+            break;
+        case 'afghanistan':
+            currency = 'Afghani (AFN)';
+            break;
+        case 'armenia':
+            currency = 'Dram (AMD)';
+            break;
+        case 'azerbaijan':
+            currency = 'Manat (AZN)';
+            break;
+        case 'bahrain':
+            currency = 'Bahraini Dinar (BHD)';
+            break;
+        case 'bangladesh':
+            currency = 'Taka (BDT)';
+            break;
+        case 'bhutan':
+            currency = 'Ngultrum (BTN)';
+            break;
+        case 'brunei':
+            currency = 'Brunei Dollar (BND)';
+            break;
+        case 'cambodia':
+            currency = 'Riel (KHR)';
+            break;
+        case 'china':
+            currency = 'Yuan Renminbi (CNY)';
+            break;
+        case 'georgia':
+            currency = 'Lari (GEL)';
+            break;
+        case 'india':
+            currency = 'Indian Rupee (INR)';
+            break;
+        default:
+            currency = 'Currency not available';
     }
+    currencyDisplay.textContent = currency;
 }
+
 // Show modal when United States is clicked
 countryname.addEventListener('click', function() {
     countryModal.style.display = 'block';
@@ -78,13 +105,37 @@ countrySelect.addEventListener('change', function() {
     updateCurrency(this.value);
 });
 
+// Close button functionality
+countryCloseBtn.addEventListener('click', function() {
+    countryModal.style.display = 'none';
+});
+
 // Submit button functionality
 document.getElementById('submitCountry').addEventListener('click', function() {
     const selectedCountry = countrySelect.options[countrySelect.selectedIndex].text;
+    const selectedCountryCode = countrySelect.value; 
+
+    // Store country and currency in localStorage
+    localStorage.setItem('selectedCountry', selectedCountry);
+    localStorage.setItem('selectedCountryCode', selectedCountryCode);
+
+    // Update the country and currency in the navbar
     countryModal.style.display = 'none';
-    countryname.innerHTML = `<li><a href="#" class="nav-item"><i class="fas fa-globe"></i>${selectedCountry}</a></li>`;
+    countryname.innerHTML = `<a href="#" class="nav-item"><i class="fas fa-globe"></i>${selectedCountry}</a>`;
+
+    updateCurrency(selectedCountryCode); // Update currency based on selected country
 });
 
+// Retrieve saved country and currency from localStorage when the page loads
+window.addEventListener('load', function() {
+    const savedCountry = localStorage.getItem('selectedCountry');
+    const savedCountryCode = localStorage.getItem('selectedCountryCode');
+
+    if (savedCountry && savedCountryCode) {
+        countryname.innerHTML = `<a href="#" class="nav-item"><i class="fas fa-globe"></i>${savedCountry}</a>`;
+        updateCurrency(savedCountryCode); // Set the saved currency
+    }
+});
 
 
 // JavaScript to toggle the modal visibility on Share button click
@@ -169,7 +220,7 @@ const galleryClose = document.querySelector('.gallery-close');
 const sliderImages = document.querySelectorAll('.slider-image');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
-const photoCount = document.querySelector('.photo-count strong');
+const photoCount = document.querySelector('.photo-count');
 const modalPhotoCount = document.querySelector('.modal-photo-count strong');
 const modalTitle = document.querySelector('.modal-photo-count h1'); // Target the <h1>
 const totalPhotos = sliderImages.length;
@@ -201,7 +252,7 @@ modalPhotoCount.textContent = `${photoIndex + 1} / ${totalPhotos}`;
         nextBtn.disabled = photoIndex === totalPhotos - 1;
 }
 
-    // Previous button functionality
+// Previous button functionality
 prevBtn.addEventListener('click', function() {
         if (currentPhotoIndex > 0) {
             currentPhotoIndex--;
@@ -227,8 +278,14 @@ const childrenIncreaseBtn = document.getElementById('children-increase');
 const childrenDecreaseBtn = document.getElementById('children-decrease');
 const travelersDiv = document.querySelector('.travelers');
 
+// Function to update travelers data in localStorage
+function updateLocalStorage() {
+    localStorage.setItem('adults', adultsInput.value);
+    localStorage.setItem('children', childrenInput.value);
+}
+
 // Show modal when the travelers div is clicked
-document.querySelector('.travelers').addEventListener('click', function() {
+travelersDiv.addEventListener('click', function() {
     travelmodal.style.display = 'block';
 });
 
@@ -236,14 +293,16 @@ document.querySelector('.travelers').addEventListener('click', function() {
 adultsIncreaseBtn.addEventListener('click', function() {
     adultsInput.value = parseInt(adultsInput.value) + 1;
     adultsDecreaseBtn.disabled = false;
+    updateLocalStorage(); // Save to localStorage
 });
 
 adultsDecreaseBtn.addEventListener('click', function() {
     if (adultsInput.value > 0) {
         adultsInput.value = parseInt(adultsInput.value) - 1;
-        if (adultsInput.value === 0) {
+        if (adultsInput.value === '0') {
             adultsDecreaseBtn.disabled = true;
         }
+        updateLocalStorage(); // Save to localStorage
     }
 });
 
@@ -251,14 +310,16 @@ adultsDecreaseBtn.addEventListener('click', function() {
 childrenIncreaseBtn.addEventListener('click', function() {
     childrenInput.value = parseInt(childrenInput.value) + 1;
     childrenDecreaseBtn.disabled = false;
+    updateLocalStorage(); // Save to localStorage
 });
 
 childrenDecreaseBtn.addEventListener('click', function() {
     if (childrenInput.value > 0) {
         childrenInput.value = parseInt(childrenInput.value) - 1;
-        if (childrenInput.value === 0) {
+        if (childrenInput.value === '0') {
             childrenDecreaseBtn.disabled = true;
         }
+        updateLocalStorage(); // Save to localStorage
     }
 });
 
@@ -268,4 +329,23 @@ document.getElementById('submitDoneTraveller').addEventListener('click', functio
     travelersDiv.innerHTML = `Travelers <br>${totalTravelers} travelers`;
     travelmodal.style.display = 'none';
 });
+
+// Load travelers data from localStorage on page load
+window.addEventListener('load', function() {
+    const savedAdults = localStorage.getItem('adults');
+    const savedChildren = localStorage.getItem('children');
+
+    // Set input values if they exist in localStorage, otherwise default to 0
+    adultsInput.value = savedAdults !== null ? savedAdults : 0;
+    childrenInput.value = savedChildren !== null ? savedChildren : 0;
+
+    // Update the display for total travelers
+    const totalTravelers = parseInt(adultsInput.value) + parseInt(childrenInput.value);
+    travelersDiv.innerHTML = `Travelers <br>${totalTravelers} travelers`;
+
+    // Disable decrease buttons if values are 0
+    adultsDecreaseBtn.disabled = adultsInput.value == 0;
+    childrenDecreaseBtn.disabled = childrenInput.value == 0;
+});
+
 

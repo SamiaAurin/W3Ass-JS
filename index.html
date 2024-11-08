@@ -16,30 +16,42 @@
 </head>
 <body>
     <nav class="navbar">
-        <i class="far fa-user-circle phone-icon"></i>
-        <ul class="nav-items">
-            <li><a href="#" class="nav-item"><i class="fas fa-globe"></i>United States</a></li>
-            <li><a href="#" class="nav-item">Trip Boards</a></li>
-            <li><a href="#" class="nav-item">List your property</a></li>
-            <li><a href="#" class="nav-item">Help</a></li>
-            <li><a href="#" class="nav-item">My trips</a></li>
-            <li><a href="#" class="nav-item">Sign in</a></li>
+        <i class="far fa-user-circle phone-icon" id="toggleIcon"></i>
+        <ul class="nav-items" id="navbarItems">
+          <li><a href="#" class="nav-item"><i class="fas fa-globe"></i>United States</a></li>
+          <li><a href="#" class="nav-item">Trip Boards</a></li>
+          <li><a href="#" class="nav-item">List your property</a></li>
+          <li><a href="#" class="nav-item">Help</a></li>
+          <li><a href="#" class="nav-item">My trips</a></li>
+          <li><a href="#" class="nav-item">Sign in</a></li>
         </ul>
+
         <!-- HTML for the Country modal -->
         <div class="country-modal" id="countryModal">
-            <div class="modal-content">
-                <div class="country-modal-title">
-                    <span class="gallery-close">&times;</span>
-                    <h3>Display Settings</h3>
-                </div>
-                <div class="countrymodal-text">
-                    <h3>⚠️ Changing your region could change your rewards program</h3>
-                    <h5>To stay with your current rewards program keep your region the same. One Key is currently only available in select regions.</h5>
-                </div>
-                <div class="select-wrapper">
-                    <label for="countrySelect"></label>
-                    <select id="countrySelect">
-                        
+
+    <div class="modal-content">
+    
+    <div class="country-modal-title">
+    
+    <span class="country-close">&times;</span>
+    
+    <h3>Display Settings</h3>
+    
+    </div>
+    
+    <div class="countrymodal-text">
+    
+    <h3>⚠️ Changing your region could change your rewards program</h3>
+    
+    <h5>To stay with your current rewards program keep your region the same. One Key is currently only available in select regions.</h5>
+    
+    </div>
+    
+    <div class="select-wrapper">
+    
+    <label for="countrySelect"></label>
+    
+    <select id="countrySelect">
                         <option value="usa">United States</option>
                         <option value="uk">United Kingdom</option>
                         <option value="canada">Canada</option>
@@ -69,7 +81,8 @@
                 <button id="submitCountry">Save</button>
             </div>
         </div>
-    </nav>
+      </nav>
+      
   
     <!-- gallery starts-->
     <div class="gallery-section">
@@ -131,7 +144,7 @@
                     <img src="images/home5.jpg" alt="Third living room view">
                     <div class="photo-count">
                         <i class="fas fa-images"></i>
-                        <strong>30+</strong>
+                        <strong>5+</strong>
                     </div>
                 </div>
             </div>
@@ -297,7 +310,7 @@
                                         </div>
                                     </div>
                                     <div class="counter-section">
-                                        <label>Children:</label>
+                                        <label>Children<br>(Age: 0 to 17):</label>
                                         <div class="counter-controls">
                                             <i class="fas fa-plus" id="children-increase"></i>
                                             <input type="number" id="children" min="0" max="17" value="0" disabled>
@@ -305,8 +318,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <input type="checkbox" id="travelWithPets" class="travelWithPets">
-                                <label for="travelWithPets" class="travelWithPets-label">I am traveling with pets</label>
+                                <div>
+                                    <input type="checkbox" id="travelWithPets" class="travelWithPets">
+                                    <label for="travelWithPets" class="travelWithPets-label">I am traveling with pets</label>
+                                </div>
                                 <button type="button" id="submitDoneTraveller">Done</button>
                             </div>
                         </div>
