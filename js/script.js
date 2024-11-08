@@ -177,7 +177,15 @@ function toggleHeartState() {
 }
 
 // Set the initial state of the heart icon and text based on the stored value
-
+if (heartState === 'active') {
+    heartIcon.classList.remove('fa-heart-o');
+    heartIcon.classList.add('fa-heart');
+    shareText.textContent = 'Saved';
+} else {
+    heartIcon.classList.remove('fa-heart');
+    heartIcon.classList.add('fa-heart-o');
+    shareText.textContent = 'Save';
+}
 
 // Event listener to toggle the heart state when the button is clicked
 document.querySelector('.btn-save').addEventListener('click', toggleHeartState);
