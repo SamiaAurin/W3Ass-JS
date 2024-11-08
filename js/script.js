@@ -190,8 +190,7 @@ if (heartState === 'active') {
 // Event listener to toggle the heart state when the button is clicked
 document.querySelector('.btn-save').addEventListener('click', toggleHeartState);
 
-// Event listener to toggle the heart icon state on button click
-btn.addEventListener('click', toggleHeartState);
+
 
 //JavaScript for the Gallery Pics Modal
 const galleryModal = document.getElementById('GalleryModal');
