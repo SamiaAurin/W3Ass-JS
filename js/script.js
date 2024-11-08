@@ -27,114 +27,85 @@ const countrySelect = document.getElementById('countrySelect');
 const currencyDisplay = document.getElementById('currencyDisplay');
 const countryname = document.querySelector('.nav-item:first-child');
 const countryCloseBtn = document.querySelector('.country-close');
+const submitCountryBtn = document.getElementById('submitCountry');
 
-// Function to update currency based on selected country
-function updateCurrency(country) {
+// Function to update the country in both the navbar and modal
+function setCountry(countryCode, countryName) {
+    // Update the navbar display
+    countryname.innerHTML = `<a href="#" class="nav-item"><i class="fas fa-globe"></i>${countryName}</a>`;
+    
+    // Update the modal selection
+    countrySelect.value = countryCode;
+
+    // Store in localStorage
+    localStorage.setItem('selectedCountry', countryName);
+    localStorage.setItem('selectedCountryCode', countryCode);
+}
+
+// Function to update currency based on the selected country
+function updateCurrency(countryCode) {
     let currency = 'Currency not available'; // Default message
-    switch (country) {
-        case 'usa':
-            currency = '$ USD';
-            break;
-        case 'uk':
-            currency = '£ GBP';
-            break;
-        case 'canada':
-            currency = '$ CAD';
-            break;
-        case 'eurozone':
-            currency = '€ EUR';
-            break;
-        case 'japan':
-            currency = '¥ JPY';
-            break;
-        case 'australia':
-            currency = '$ AUD';
-            break;
-        case 'switzerland':
-            currency = 'CHF';
-            break;
-        case 'sweden':
-            currency = 'SEK';
-            break;
-        case 'afghanistan':
-            currency = 'Afghani (AFN)';
-            break;
-        case 'armenia':
-            currency = 'Dram (AMD)';
-            break;
-        case 'azerbaijan':
-            currency = 'Manat (AZN)';
-            break;
-        case 'bahrain':
-            currency = 'Bahraini Dinar (BHD)';
-            break;
-        case 'bangladesh':
-            currency = 'Taka (BDT)';
-            break;
-        case 'bhutan':
-            currency = 'Ngultrum (BTN)';
-            break;
-        case 'brunei':
-            currency = 'Brunei Dollar (BND)';
-            break;
-        case 'cambodia':
-            currency = 'Riel (KHR)';
-            break;
-        case 'china':
-            currency = 'Yuan Renminbi (CNY)';
-            break;
-        case 'georgia':
-            currency = 'Lari (GEL)';
-            break;
-        case 'india':
-            currency = 'Indian Rupee (INR)';
-            break;
-        default:
-            currency = 'Currency not available';
+
+    switch (countryCode) {
+        case 'usa': currency = '$ USD'; break;
+        case 'uk': currency = '£ GBP'; break;
+        case 'canada': currency = '$ CAD'; break;
+        case 'eurozone': currency = '€ EUR'; break;
+        case 'japan': currency = '¥ JPY'; break;
+        case 'australia': currency = '$ AUD'; break;
+        case 'switzerland': currency = 'CHF'; break;
+        case 'sweden': currency = 'SEK'; break;
+        case 'afghanistan': currency = 'Afghani (AFN)'; break;
+        case 'armenia': currency = 'Dram (AMD)'; break;
+        case 'azerbaijan': currency = 'Manat (AZN)'; break;
+        case 'bahrain': currency = 'Bahraini Dinar (BHD)'; break;
+        case 'bangladesh': currency = 'Taka (BDT)'; break;
+        case 'bhutan': currency = 'Ngultrum (BTN)'; break;
+        case 'brunei': currency = 'Brunei Dollar (BND)'; break;
+        case 'cambodia': currency = 'Riel (KHR)'; break;
+        case 'china': currency = 'Yuan Renminbi (CNY)'; break;
+        case 'georgia': currency = 'Lari (GEL)'; break;
+        case 'india': currency = 'Indian Rupee (INR)'; break;
     }
     currencyDisplay.textContent = currency;
 }
 
-// Show modal when United States is clicked
+// Event listener to show the modal when the country in the navbar is clicked
 countryname.addEventListener('click', function() {
     countryModal.style.display = 'block';
 });
 
-// Event listener for country selection change
+// Event listener for country selection change in the modal
 countrySelect.addEventListener('change', function() {
-    updateCurrency(this.value);
+    updateCurrency(this.value); // Update currency based on the new selection
 });
 
-// Close button functionality
+// Close button functionality to hide the modal
 countryCloseBtn.addEventListener('click', function() {
     countryModal.style.display = 'none';
 });
 
-// Submit button functionality
-document.getElementById('submitCountry').addEventListener('click', function() {
+// Submit button functionality to save the selected country and currency
+submitCountryBtn.addEventListener('click', function() {
     const selectedCountry = countrySelect.options[countrySelect.selectedIndex].text;
     const selectedCountryCode = countrySelect.value; 
 
-    // Store country and currency in localStorage
-    localStorage.setItem('selectedCountry', selectedCountry);
-    localStorage.setItem('selectedCountryCode', selectedCountryCode);
+    // Store selected country and currency in localStorage
+    setCountry(selectedCountryCode, selectedCountry);
 
-    // Update the country and currency in the navbar
+    // Hide the modal and update currency based on the selected country
     countryModal.style.display = 'none';
-    countryname.innerHTML = `<a href="#" class="nav-item"><i class="fas fa-globe"></i>${selectedCountry}</a>`;
-
-    updateCurrency(selectedCountryCode); // Update currency based on selected country
+    updateCurrency(selectedCountryCode);
 });
 
-// Retrieve saved country and currency from localStorage when the page loads
+// Load saved country and currency from localStorage when the page loads
 window.addEventListener('load', function() {
-    const savedCountry = localStorage.getItem('selectedCountry');
-    const savedCountryCode = localStorage.getItem('selectedCountryCode');
+    const savedCountry = localStorage.getItem('selectedCountry') || 'United States';
+    const savedCountryCode = localStorage.getItem('selectedCountryCode') || 'usa';
 
-    if (savedCountry && savedCountryCode) {
-        countryname.innerHTML = `<a href="#" class="nav-item"><i class="fas fa-globe"></i>${savedCountry}</a>`;
-        updateCurrency(savedCountryCode); // Set the saved currency
-    }
+    // Set the country and currency on initial page load
+    setCountry(savedCountryCode, savedCountry);
+    updateCurrency(savedCountryCode);
 });
 
 
