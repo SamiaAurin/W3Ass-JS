@@ -243,7 +243,7 @@ function updateGalleryModalContent(photoIndex) {
             img.style.display = index === photoIndex ? 'block' : 'none';
 });
 
-        // Set the modal title based on the current image's alt text
+// Set the modal title based on the current image's alt text
 modalTitle.textContent = sliderImages[photoIndex].alt;
 modalPhotoCount.textContent = `${photoIndex + 1} / ${totalPhotos}`;
         

@@ -207,14 +207,16 @@ body {
 /* CSS for the share modal starts */
 .share-modal {
     display: none;
-    position: fixed;
-    z-index: 1;
+    position: absolute;
+    z-index: 100;
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 1000px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
+
+   
 }
 
 .share-modal-content {
@@ -281,6 +283,9 @@ body {
 
 /* CSS for the share modal ends*/
 /*Gallery Pics CSS*/
+.gallery-section{
+    position: relative;
+}
 .gallery-grid {
     display: flex;
     gap: 8px;
@@ -336,12 +341,11 @@ body {
 .gallery-img-modal {
     display: none;  
     z-index: 1001; 
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 100%; 
-    height: 100%; 
     background-color: transparent; 
 }
 
@@ -360,9 +364,10 @@ body {
 /* Modal content */
 .gallery-modal-content {
     display: flex;
+    
     flex-direction: column;
     justify-content: center;
-    margin: 10% auto;
+   
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */;
     padding: 20px;
     border-radius: 5px;
@@ -409,7 +414,6 @@ body {
 
 .modal-photo-count h1 {
     font-size: 1.5em;
-    margin-bottom: 10px;
     font-weight: 400;
 }
 
@@ -476,12 +480,7 @@ body {
     color: black;
     margin: 5px 0;
 }
-@media (max-width: 1280px) {
-    .title-section h1{
-        font-size: 30px;
-    }
-    
-}
+
 .rating {
     display: flex;
     margin-top: 10px;
@@ -604,6 +603,7 @@ body {
 
 /* Right Column */
 .right-column {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -698,7 +698,7 @@ body {
 /* CSS for the traveller modal */
 .travel-modal {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 85%;
     transform: translate(-50%, -50%);
@@ -1387,7 +1387,19 @@ input[type="checkbox"] {
 }
 
 /*Responsive Design*/
+@media (max-width: 1280px) {
+    .title-section h1{
+        font-size: 30px;
+    }
+    
+}
 @media (max-width: 995px) {
+    /*Gallery Modal*/
+    .modal-photo-count h1,
+    .modal-photo-count strong
+     {
+        font-size: 1em; 
+    }
     .content{
         display: block;
         gap: 30px;
@@ -1450,6 +1462,9 @@ input[type="checkbox"] {
     /*Gallery Modal CSS*/
     .gallery-modal-content {
         max-width: 90%;
+        width: 400px;
+        height: 500px;
+        margin-top: 50px;
     }
 
     .location-list{
@@ -1518,7 +1533,9 @@ input[type="checkbox"] {
 
 /*Responsive For Mobile Devices*/
 @media (max-width:480px) {
-
+    #countryModal {
+        width: 350px;
+    }
     .share-text{
         display: none; 
     }
@@ -1576,16 +1593,21 @@ input[type="checkbox"] {
     .booking-card {
        width: 100%;
     }
-    /*Taveller Modal CSS*/
+    /*Gallery Modal CSS*/
     .gallery-img-modal{
         top: 55%;
+        left: 55%;
      }
      .modal-photo-count h1,
      .modal-photo-count strong{
          font-size: 1em;
-         margin-bottom: 10px;
          
      }
+     .share-modal {
+        
+        height: 600px;
+        
+    }
     .sharemodal-title {
         font-size: 8px;
         h6{
@@ -1599,7 +1621,6 @@ input[type="checkbox"] {
     }
     
     .gallery-modal-content {
-        max-width: 90%;
         height: 50%;
     }
 
@@ -1614,7 +1635,9 @@ input[type="checkbox"] {
         font-size: 6px;
         padding: 5px;
     }
-
+    .bedroom-details{
+        gap: 100px;
+    }
     /*Amenities Section*/
     .amenities-section ,
     .amenities-grid{
@@ -1731,7 +1754,9 @@ input[type="checkbox"] {
 /*Media Query for 375px*/
 /*Right Section/Card for Cancellation Rules */
 @media (max-width: 375px) {
-
+    #countryModal {
+        width: 300px;
+    }
     .btn{
         padding: 4px 8px;
     }
