@@ -208,7 +208,7 @@ galleryClose.addEventListener('click', function() {
     galleryModal.style.display = 'none';
 });
 
-    // Function to update the image, title, and photo count
+// Function to update the image, title, and photo count
 function updateGalleryModalContent(photoIndex) {
         sliderImages.forEach((img, index) => {
             img.style.display = index === photoIndex ? 'block' : 'none';
@@ -264,7 +264,7 @@ travelersDiv.addEventListener('click', function() {
 adultsIncreaseBtn.addEventListener('click', function() {
     adultsInput.value = parseInt(adultsInput.value) + 1;
     adultsDecreaseBtn.disabled = false;
-    updateLocalStorage(); // Save to localStorage
+    updateLocalStorage(); 
 });
 
 adultsDecreaseBtn.addEventListener('click', function() {
@@ -273,7 +273,7 @@ adultsDecreaseBtn.addEventListener('click', function() {
         if (adultsInput.value === '0') {
             adultsDecreaseBtn.disabled = true;
         }
-        updateLocalStorage(); // Save to localStorage
+        updateLocalStorage(); 
     }
 });
 
@@ -281,7 +281,7 @@ adultsDecreaseBtn.addEventListener('click', function() {
 childrenIncreaseBtn.addEventListener('click', function() {
     childrenInput.value = parseInt(childrenInput.value) + 1;
     childrenDecreaseBtn.disabled = false;
-    updateLocalStorage(); // Save to localStorage
+    updateLocalStorage(); 
 });
 
 childrenDecreaseBtn.addEventListener('click', function() {
@@ -290,7 +290,7 @@ childrenDecreaseBtn.addEventListener('click', function() {
         if (childrenInput.value === '0') {
             childrenDecreaseBtn.disabled = true;
         }
-        updateLocalStorage(); // Save to localStorage
+        updateLocalStorage(); 
     }
 });
 
